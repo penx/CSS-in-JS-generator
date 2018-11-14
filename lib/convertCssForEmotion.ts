@@ -8,7 +8,7 @@ export function convertCssForEmotion(css: string): string {
 
     const cssIndexedByScope = getCssIndexedByScope(css);
 
-    cssForEmotion += 'import { styled } from "@emotion/primitives";\n';
+    cssForEmotion += 'import styled from "@emotion/primitives";\n';
 
     const knownScopes = new Set([...cssIndexedByScope.keys()]);
 
