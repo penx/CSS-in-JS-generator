@@ -8,15 +8,7 @@ export function convertCssForEmotion(css: string): string {
 
     const cssIndexedByScope = getCssIndexedByScope(css);
 
-    if (cssIndexedByScope.has("root")) {
-        if (cssIndexedByScope.size > 1) {
-            cssForEmotion += 'import { css, injectGlobal } from "emotion";\n';
-        } else {
-            cssForEmotion += 'import { injectGlobal } from "emotion";\n';
-        }
-    } else if (cssIndexedByScope.size > 0) {
-        cssForEmotion += 'import { css } from "emotion";\n';
-    }
+    cssForEmotion += 'import { styled } from "@emotion/primitives";\n';
 
     const knownScopes = new Set([...cssIndexedByScope.keys()]);
 
@@ -61,11 +53,11 @@ export function convertCssForEmotion(css: string): string {
         );
 
         if (scope === "root") {
-            cssForEmotion += `injectGlobal\`${convertedScopedCssForEmotion}\`;\n`;
+            // cssForEmotion += `injectGlobal\`${convertedScopedCssForEmotion}\`;\n`;
         } else {
             cssForEmotion += `export const ${convertScopeToModuleName(
                 scope,
-            )} = css\`${convertedScopedCssForEmotion}\`;\n`;
+            )} = styled.View\`${convertedScopedCssForEmotion}\`;\n`;
         }
     });
 

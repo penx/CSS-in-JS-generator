@@ -1,11 +1,11 @@
 {
-    "name": "css-in-js-generator",
-    "version": "0.3.0",
+    "name": "@penx/css-in-js-generator",
+    "version": "0.0.1",
     "description": "A tool to generate trendy CSS-in-JS files from regular CSS.",
     "main": "index.js",
     "scripts": {
-        "prepublish": "npm run-script test && tsc --pretty",
-        "test": "jest"
+        "prepublish": "tsc --pretty",
+        "test": "jest -u"
     },
     "repository": {
         "type": "git",
@@ -37,7 +37,7 @@
         "@types/lodash": "4.14.77",
         "@types/node": "8.0.32",
         "@types/prettier": "1.7.0",
-        "jest": "21.2.1",
+        "jest": "^21.2.1",
         "lodash.shuffle": "4.2.0",
         "tslint": "5.7.0",
         "typescript": "2.5.3"
