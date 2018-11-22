@@ -8,7 +8,7 @@ export function convertCssForEmotion(css: string): string {
 
     const cssIndexedByScope = getCssIndexedByScope(css);
 
-    cssForEmotion += 'import styled from "@emotion/primitives";\n';
+    cssForEmotion += 'import styled from "react-emotion";\n';
 
     const knownScopes = new Set([...cssIndexedByScope.keys()]);
 
@@ -57,7 +57,7 @@ export function convertCssForEmotion(css: string): string {
         } else {
             cssForEmotion += `export const ${convertScopeToModuleName(
                 scope,
-            )} = styled.View\`${convertedScopedCssForEmotion}\`;\n`;
+            )} = styled('div')\`${convertedScopedCssForEmotion}\`;\n`;
         }
     });
 
