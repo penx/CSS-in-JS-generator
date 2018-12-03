@@ -3,7 +3,7 @@ import { convertScopeToModuleName } from "./convertScopeToModuleName";
 import { getCssIndexedByScope } from "./getCssIndexedByScope";
 import { getRequiredScopes } from "./getRequiredScopes";
 
-export function convertCssForEmotion(css: string): string {
+export function convertCssForEmotion(css: string, startsWith?: string): string {
     let cssForEmotion = "";
 
     const cssIndexedByScope = getCssIndexedByScope(css);
@@ -54,6 +54,8 @@ export function convertCssForEmotion(css: string): string {
 
         if (scope === "root") {
             // cssForEmotion += `injectGlobal\`${convertedScopedCssForEmotion}\`;\n`;
+        } else if (!scope.startsWith(startsWith)) {
+            // we ony want to export classes that start with the main class name for the file
         } else {
             cssForEmotion += `export const ${convertScopeToModuleName(
                 scope,
