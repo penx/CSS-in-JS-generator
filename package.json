@@ -1,6 +1,6 @@
 {
     "name": "@penx/css-in-js-generator",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "A tool to generate trendy CSS-in-JS files from regular CSS.",
     "main": "index.js",
     "scripts": {
