@@ -28,7 +28,7 @@
     "dependencies": {
         "camelcase": "4.1.0",
         "postcss": "6.0.13",
-        "postcss-selector-parser": "3.0.0-rc.0",
+        "postcss-selector-parser": "4.0.0",
         "prettier": "1.7.4"
     },
     "devDependencies": {
